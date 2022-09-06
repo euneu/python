@@ -1,3 +1,5 @@
+# website가 http://로 시작하지 않으면 http://로 시작하도록 만들기
+
 websites =(
     "google.com",
     "naver.com",
@@ -7,7 +9,7 @@ websites =(
 )
 
 for website in websites :
-    if website.startswith("https://"):
-        print("good to go")
-    else :
-        print("we have to fix")
+    # not를 붙여줌으로써  if문이 false일 때로 설정
+    if not website.startswith("https://"):
+        website = f"https://{website}"
+    print(website)
