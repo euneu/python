@@ -1,5 +1,4 @@
-from re import search
-import re
+
 from requests import get
 from bs4 import BeautifulSoup
 
