@@ -3,12 +3,14 @@ from extractors.wwr import extract_wwr_jobs
 
 keyword = input("what do you want to search for?")
 
-#두 개 다 리스트를 리턴함
 indeed = extra_indeed_jobs(keyword)
 wwr = extract_wwr_jobs(keyword)
+jobs = indeed + wwr
 
-jobs = indeed+ wwr
+file = open(f"{keyword}.csv", "w", encoding="utf-8")
+file.write("Position, Company, Location, URL\n")
 
-for job in jobs :
-    print(job)
-    print("-------------------")
+for job in jobs:
+    file.write(f"{job['position']},{job['company']},{job['location']},{job['link']}\n")
+
+file.close()

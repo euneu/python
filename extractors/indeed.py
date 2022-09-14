@@ -47,9 +47,9 @@ def extra_indeed_jobs(keyword):
                 location = job.find("div", class_="companyLocation")
                 job_data ={
                     'link' : f"https://kr.indeed.com{link}",
-                    'company' : company.string,
-                    'location' : location.string,
-                    'position' : title
+                    'company' : company.string.replace(",", " "),
+                    'location' : location.string.replace(",", " "),
+                    'position' : title.replace(",", " ")
                 }
                 results.append(job_data)
     return results        
