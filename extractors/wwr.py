@@ -28,6 +28,7 @@ def extract_wwr_jobs(keyword):
                 company, kind, region = anchors.find_all('span', class_="company")
                 title = anchors.find('span', class_='title')
                 job_data = {
+                    'link' : link,
                     'company' : company.string,
                     'region' : region.string,
                     'position' : title.string
